@@ -1,0 +1,118 @@
+/* ── Grid layout ──────────────────────────────────────────────────────────── */
+
+.clockpro-grid {
+  display: inline-flex;
+  gap: 15px;
+}
+
+.clockpro-grid-left    { flex-direction: row; }
+.clockpro-grid-right   { flex-direction: row-reverse; }
+.clockpro-grid-top     { flex-direction: column; }
+.clockpro-grid-bottom  { flex-direction: column-reverse; }
+
+/* ── Analog clock ─────────────────────────────────────────────────────────── */
+
+.clockpro-circle {
+  place-self: center;
+  position: relative;
+  border-radius: 50%;
+  background-size: 100%;
+}
+
+.clockpro-face {
+  width: 100%;
+  height: 100%;
+}
+
+.clockpro-face::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: var(--color-text-bright);
+  border-radius: 3px;
+  content: "";
+  display: block;
+}
+
+.clockpro-hour-hand {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -2px 0 -2px -25%;
+  padding: 2px 0 2px 25%;
+  background: var(--color-text-bright);
+  transform-origin: 100% 50%;
+  border-radius: 3px 0 0 3px;
+}
+
+.clockpro-minute-hand {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -35% -2px 0;
+  padding: 35% 2px 0;
+  background: var(--color-text-bright);
+  transform-origin: 50% 100%;
+  border-radius: 3px 0 0 3px;
+}
+
+.clockpro-second-hand {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -38% -1px 0 0;
+  padding: 38% 1px 0 0;
+  background: #888888;
+  transform-origin: 50% 100%;
+}
+
+/* ── Digital clock ────────────────────────────────────────────────────────── */
+
+.module.MMM-ClockPro .digital {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.module.MMM-ClockPro .sun,
+.module.MMM-ClockPro .moon {
+  display: flex;
+  white-space: nowrap;
+  gap: 10px;
+}
+
+.module.MMM-ClockPro .sun > *,
+.module.MMM-ClockPro .moon > * {
+  flex: 1;
+}
+
+.clockpro-hour-digital {
+  color: var(--color-text-bright);
+}
+
+.clockpro-minute-digital {
+  color: var(--color-text-bright);
+}
+
+.clockpro-second-digital {
+  color: var(--color-text-dimmed);
+}
+
+/* AM/PM — small superscript in upper-right corner of the time */
+.module.MMM-ClockPro .clockpro-period {
+  font-size: 0.38em;
+  vertical-align: super;
+  margin-left: 0.15em;
+  line-height: 1;
+  color: var(--color-text-bright);
+}
+
