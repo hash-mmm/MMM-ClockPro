@@ -32,6 +32,9 @@ Module.register("MMM-ClockPro", {
 		analogPlacement: "bottom",
 		analogShowDate: "top",
 
+		showDayAbbr: false,   // show 3-letter abbreviated day name (e.g. "Mon")
+		showMonthAbbr: false, // show 3-letter abbreviated month name (e.g. "Aug")
+
 		showSunTimes: false, // true | false | "disableNextEvent"
 		showMoonTimes: false, // false | "times" | "percent" | "phase" | "both"
 		lat: 47.630539,
@@ -150,6 +153,20 @@ Module.register("MMM-ClockPro", {
 			dateEl.className = "date normal medium";
 			dateEl.innerHTML = now.format(cfg.dateFormat);
 			digitalWrapper.appendChild(dateEl);
+		}
+
+		if (cfg.showDayAbbr && cfg.displayType !== "analog") {
+			const dayEl = document.createElement("div");
+			dayEl.className = "date normal medium";
+			dayEl.innerHTML = now.format("ddd");
+			digitalWrapper.appendChild(dayEl);
+		}
+
+		if (cfg.showMonthAbbr && cfg.displayType !== "analog") {
+			const monthEl = document.createElement("div");
+			monthEl.className = "date normal medium";
+			monthEl.innerHTML = now.format("MMM");
+			digitalWrapper.appendChild(monthEl);
 		}
 
 		if (cfg.displayType !== "analog" && cfg.showTime) {
