@@ -148,25 +148,18 @@ Module.register("MMM-ClockPro", {
 		const digitalWrapper = document.createElement("div");
 		digitalWrapper.className = "digital";
 
+		// Apply abbreviation options to the date format string
+		let dateFmt = cfg.dateFormat;
+		if (cfg.showDayAbbr) dateFmt = dateFmt.replace(/dddd/g, "ddd");
+		if (cfg.showMonthAbbr) {
+			dateFmt = dateFmt.replace(/LLLL/g, "llll").replace(/LLL/g, "lll").replace(/LL/g, "ll").replace(/MMMM/g, "MMM");
+		}
+
 		if (cfg.showDate && cfg.displayType !== "analog") {
 			const dateEl = document.createElement("div");
 			dateEl.className = "date normal medium";
-			dateEl.innerHTML = now.format(cfg.dateFormat);
+			dateEl.innerHTML = now.format(dateFmt);
 			digitalWrapper.appendChild(dateEl);
-		}
-
-		if (cfg.showDayAbbr && cfg.displayType !== "analog") {
-			const dayEl = document.createElement("div");
-			dayEl.className = "date normal medium";
-			dayEl.innerHTML = now.format("ddd");
-			digitalWrapper.appendChild(dayEl);
-		}
-
-		if (cfg.showMonthAbbr && cfg.displayType !== "analog") {
-			const monthEl = document.createElement("div");
-			monthEl.className = "date normal medium";
-			monthEl.innerHTML = now.format("MMM");
-			digitalWrapper.appendChild(monthEl);
 		}
 
 		if (cfg.displayType !== "analog" && cfg.showTime) {
@@ -235,7 +228,7 @@ Module.register("MMM-ClockPro", {
 			if (cfg.showDate) {
 				const dateEl = document.createElement("div");
 				dateEl.className = "date normal medium";
-				dateEl.innerHTML = now.format(cfg.dateFormat);
+				dateEl.innerHTML = now.format(dateFmt);
 				wrapper.appendChild(dateEl);
 			}
 			wrapper.appendChild(analogWrapper);
