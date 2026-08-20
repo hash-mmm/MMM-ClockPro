@@ -60,8 +60,8 @@ Replace `clock` with `MMM-ClockPro` in your `config/config.js`. All options are 
 | `analogSize` | `"200px"` | Size of the analog clock face |
 | `analogFace` | `"simple"` | `"none"` · `"simple"` · `"face-001"` … `"face-012"` |
 | `analogPlacement` | `"bottom"` | Analog clock position relative to digital: `"top"` · `"bottom"` · `"left"` · `"right"` |
-| `showDayAbbr` | `false` | Show 3-letter abbreviated day name (e.g. `Mon`) |
-| `showMonthAbbr` | `false` | Show 3-letter abbreviated month name (e.g. `Aug`) |
+| `showDayAbbr` | `true` | Show 3-letter abbreviated day name (e.g. `Mon`) |
+| `showMonthAbbr` | `true` | Show 3-letter abbreviated month name (e.g. `Aug`) |
 | `showSunTimes` | `false` | Show sunrise, sunset, and time remaining. `true` · `false` · `"disableNextEvent"` |
 | `showMoonTimes` | `false` | Show moon rise/set. `false` · `"times"` · `"percent"` · `"phase"` · `"both"` |
 | `lat` | `47.63` | Latitude for sun/moon calculations |

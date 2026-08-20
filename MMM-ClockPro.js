@@ -32,8 +32,8 @@ Module.register("MMM-ClockPro", {
 		analogPlacement: "bottom",
 		analogShowDate: "top",
 
-		showDayAbbr: false,   // show 3-letter abbreviated day name (e.g. "Mon")
-		showMonthAbbr: false, // show 3-letter abbreviated month name (e.g. "Aug")
+		showDayAbbr: true,   // show 3-letter abbreviated day name (e.g. "Mon")
+		showMonthAbbr: true, // show 3-letter abbreviated month name (e.g. "Aug")
 
 		showSunTimes: false, // true | false | "disableNextEvent"
 		showMoonTimes: false, // false | "times" | "percent" | "phase" | "both"
